@@ -1,0 +1,33 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "ecd824fbf952f2a4a0e7f636278e80c6"
+name = "best-product-selling-app"
+handle = "best-product-selling-app"
+application_url = "https://specialist-tech-tokyo-manor.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "quickstart-1f7a5d22.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://specialist-tech-tokyo-manor.trycloudflare.com/auth/callback",
+  "https://specialist-tech-tokyo-manor.trycloudflare.com/auth/shopify/callback",
+  "https://specialist-tech-tokyo-manor.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-07"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks"
+
+[pos]
+embedded = false
